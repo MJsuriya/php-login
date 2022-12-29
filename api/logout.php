@@ -1,4 +1,5 @@
 <?php
+ini_set('session.cookie_domain', '.vercel.app');
 session_start();
 $mysqli = new mysqli("localhost", "root", "", "demo");
 
