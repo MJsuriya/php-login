@@ -1,6 +1,9 @@
 <?php
 /*require __DIR__ . '\vendor\autoload.php';
 use Firebase\JWT\JWT;*/
+
+session_name('INSIGHT');
+session_start();
 ?>
 
 <html lang = "en">
@@ -103,8 +106,6 @@ use Firebase\JWT\JWT;*/
                     $userDetails = $result->fetch_array(MYSQLI_ASSOC);
                     $admin_link = 'https://admin-portal-nextjs.vercel.app/';
 
-                    session_name('INSIGHT');
-                    session_start();
                     $_SESSION['id'] = session_id();
                     $_SESSION['userid'] = $userDetails['id'];
 
