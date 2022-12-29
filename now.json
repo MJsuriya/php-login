@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/index.php": {
-      "runtime": "now-php@8.1.13"
-    }
-  }
-}
