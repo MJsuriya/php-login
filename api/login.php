@@ -1,9 +1,14 @@
 <?php
 /*require __DIR__ . '\vendor\autoload.php';
 use Firebase\JWT\JWT;*/
-ini_set('session.cookie_domain', 'vercel.app');
+ini_set('session.cookie_domain', '.vercel.app');
 session_name('INSIGHT');
 session_start();
+
+$bCookiesEnabled = isset($_COOKIE['insight_cookie_check']);
+                    if(!$bCookiesEnabled){
+                        setcookie('insight_cookie_check', 'insight', 0, '/'); // we'll set every time they start a new browser session (for UK compliance)
+                  }
 ?>
 
 <html lang = "en">
@@ -141,11 +146,12 @@ session_start();
                                 print_r($decoded);*/
 
                     // check for our session cookie
-                    $bCookiesEnabled = isset($_COOKIE['insight_cookie_check']);
-                    if(!$bCookiesEnabled){
-                        setcookie('insight_cookie_check', 'insight', 0, '/'); // we'll set every time they start a new browser session (for UK compliance)
-                        /*setcookie('TOKEN', $jwt, 0, '/');*/
-                    }
+//                    $bCookiesEnabled = isset($_COOKIE['insight_cookie_check']);
+//                    if(!$bCookiesEnabled){
+//                        setcookie('insight_cookie_check', 'insight', 0, '/'); // we'll set every time they start a new browser session (for UK compliance)
+//                        /*setcookie('TOKEN', $jwt, 0, '/');*/
+//                    }
+                    setcookie('TOKEN', session_id(), 0, '/', '.vercel.app')
                     $_SESSION['insight'] = session_id();
 
                     $insert_session_id="INSERT INTO session	(sid, uid, status, updated) VALUES ('".$_SESSION['id']."','".$userDetails['id']."' , 1, NOW()) 
