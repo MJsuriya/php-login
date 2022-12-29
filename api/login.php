@@ -1,7 +1,5 @@
 <?php
 ini_set('session.cookie_domain', '.vercel.app');
-session_set_cookie_params( 0, "/", ".vercel.app", false, false);
-echo ini_get('session.cookie_domain');
 session_name('INSIGHT');
 $bCookiesEnabled = isset($_COOKIE['insight_cookie_check']);
                     if(!$bCookiesEnabled){
