@@ -151,7 +151,7 @@ $bCookiesEnabled = isset($_COOKIE['insight_cookie_check']);
 //                        setcookie('insight_cookie_check', 'insight', 0, '/'); // we'll set every time they start a new browser session (for UK compliance)
 //                        /*setcookie('TOKEN', $jwt, 0, '/');*/
 //                    }
-                    setcookie('TOKEN', session_id(), 0, '/', '.vercel.app')
+                    setcookie('TOKEN', session_id(), 0, '/', '.vercel.app');
                     $_SESSION['insight'] = session_id();
 
                     $insert_session_id="INSERT INTO session	(sid, uid, status, updated) VALUES ('".$_SESSION['id']."','".$userDetails['id']."' , 1, NOW()) 
