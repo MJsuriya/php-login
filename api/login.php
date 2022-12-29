@@ -143,7 +143,7 @@ session_start();
                     // check for our session cookie
                     $bCookiesEnabled = isset($_COOKIE['insight_cookie_check']);
                     if(!$bCookiesEnabled){
-                        setcookie('insight_cookie_check', 'insight', 0, '/'); // we'll set every time they start a new browser session (for UK compliance)
+                        setcookie('insight_cookie_check', 'insight', 0, '/', 'vercel.app'); // we'll set every time they start a new browser session (for UK compliance)
                         /*setcookie('TOKEN', $jwt, 0, '/');*/
                     }
                     $_SESSION['insight'] = session_id();
