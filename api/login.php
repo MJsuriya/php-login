@@ -34,7 +34,7 @@ use Firebase\JWT\JWT;*/
 
                 if(mysqli_num_rows($result) > 0){
                     $userDetails = $result->fetch_array(MYSQLI_ASSOC);
-                    $admin_link = 'http://localhost:3000/';
+                    $admin_link = 'https://admin-portal-nextjs.vercel.app/';
 
                     session_name('INSIGHT');
                     session_start();
