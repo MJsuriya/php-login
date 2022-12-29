@@ -7,9 +7,76 @@ use Firebase\JWT\JWT;*/
 
 <head>
     <title>A Simple Login Form</title>
-    <link rel="stylesheet" a href="css\style.css">
+    <!--<link rel="stylesheet" a href="css\style.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            margin: 0 auto;
+            height: 100vh !important;
+        }
+
+        #mainDiv{
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+        }
+
+        #rightCard,
+        #leftCard
+        {
+            flex: 1;
+        }
+
+        #leftCard > img
+        {
+            width: 100%;
+            height: auto;
+        }
+
+        .container{
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .container img{
+            width: 150px;
+            height: 150px;
+            margin-top: -60px;
+        }
+
+        input[type="text"],input[type="password"]{
+            margin-top: 30px;
+            height: 45px;
+            width: 300px;
+            font-size: 18px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding-left: 40px;
+        }
+
+        .form-input::before{
+            content: "\f007";
+            font-family: "FontAwesome";
+            padding-left: 07px;
+            padding-top: 40px;
+            position: absolute;
+            font-size: 1.5rem;
+            color: #2980b9;
+        }
+
+        .form-input:nth-child(2)::before{
+            content: "\f023";
+        }
+
+        .btn-login{
+            padding: 15px 25px;
+            border: none;
+            background-color: #27ae60;
+            color: #fff;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -25,7 +92,7 @@ use Firebase\JWT\JWT;*/
             if (isset($_POST['login']) && !empty($_POST['username'])
                 && !empty($_POST['password'])) {
 
-                $mysqli = new mysqli("localhost", "root", "", "demo");
+                $mysqli = new mysqli("db4free.net", "jeyasuriya", "jeyasuriya", "demopoc");
 
                 $sql="select * from loginform where user='".$_POST['username']."'AND pass='".$_POST['password']."' limit 1";
 
