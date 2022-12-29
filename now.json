@@ -1,8 +1,7 @@
 {
   "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.5.2"
+    "api/index.php": {
+      "runtime": "now-php@0.0.7"
     }
-  },
-  "routes": [{ "src": "/(.*)", "dest": "/api/index.php" }]
+  }
 }
